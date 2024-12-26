@@ -1,5 +1,5 @@
 <template>
-    <div class="product-card">
+    <div class="product-card" @click="handleClick">
         <img class="product-img" :src="product.image" alt="Product image">
         <h2>{{ product.title }}</h2>
         <p>Цена: {{ convertToRub(product.price) }} ₽</p>
@@ -19,6 +19,9 @@ export default {
         convertToRub(price) {
             const exchangeRate = 100;
             return price * exchangeRate;
+        },
+        handleClick() {
+            this.$emit('click')
         }
     }
 }
@@ -30,6 +33,7 @@ export default {
     width: 25%;
     padding: 15px;
     margin: 15px;
+    cursor: pointer;
 }
 
 .product-img {

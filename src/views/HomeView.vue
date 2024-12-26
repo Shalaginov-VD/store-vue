@@ -13,25 +13,36 @@
         v-for="product in filteredProducts"
         :key="product.id"
         :product="product"
+        @click="openModal(product)"
       />
     </div>
+
+    <ProductModal
+      v-if="selectedProduct"
+      :product="selectedProduct"
+      :isVisible="!!selectedProduct"
+      @close="closeModal"
+    />
   </div>
 </template>
 
 <script>
 import ProductCard from '../components/ProductCard.vue'
+import ProductModal from '../components/ProductModal.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    ProductCard
+    ProductCard,
+    ProductModal
   },
   data() {
     return {
       loading: true,
       products: [],
       selectedCategory: '',
-      categories: []
+      categories: [],
+      selectedProduct: null
     }
   },
   computed: {
@@ -48,6 +59,12 @@ export default {
       this.products = await response.json()
       this.categories = [...new Set(this.products.map(product => product.category))]
       this.loading = false
+    },
+    openModal(product) {
+      this.selectedProduct = product
+    },
+    closeModal() {
+      this.selectedProduct = null
     }
   },
   mounted() {
