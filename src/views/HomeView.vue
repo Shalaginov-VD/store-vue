@@ -10,11 +10,17 @@
     <div class="loading-title" v-if="loading">Загрузка...</div>
     <div class="product-grid">   
       <ProductCard
-        v-for="product in filteredProducts"
+        v-for="product in paginatedProducts"
         :key="product.id"
         :product="product"
         @click="openModal(product)"
       />
+    </div>
+
+    <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 1">Назад</button>
+      <span>Страница {{ currentPage }} из {{ totalPages }}</span>
+      <button @click="nextPage" :disabled="cuurentPage === totalPages">Вперед</button>
     </div>
 
     <ProductModal
@@ -42,7 +48,9 @@ export default {
       products: [],
       selectedCategory: '',
       categories: [],
-      selectedProduct: null
+      selectedProduct: null,
+      currentPage: 1,
+      itemsPerPage: 10
     }
   },
   computed: {
@@ -50,6 +58,14 @@ export default {
       return this.selectedCategory
         ? this.products.filter(product => product.category === this.selectedCategory)
         : this.products
+    },
+    paginatedProducts() {
+      const start = (this.currentPage - 1) * this.itemsPerPage
+      const end = start + this.itemsPerPage
+      return this.filteredProducts.slice(start, end)
+    },
+    totalPages() {
+      return Math.ceil(this.filteredProducts.length / this.itemsPerPage)
     }
   },
   methods: {
@@ -65,6 +81,16 @@ export default {
     },
     closeModal() {
       this.selectedProduct = null
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage += 1
+      }
+    },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage -= 1
+      }
     }
   },
   mounted() {
@@ -77,5 +103,11 @@ export default {
 .product-grid {
   display: flex;
   flex-wrap: wrap;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 </style>
