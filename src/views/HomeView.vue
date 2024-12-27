@@ -177,4 +177,32 @@ export default {
 .page-numbers button {
   margin: 0 2px;
 }
+
+@media (max-width: 400px) {
+  .product-grid {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .cart-row {
+  margin-left: 50%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .page-numbers {
+    flex-wrap: wrap;
+  }
+
+  .page-numbers button {
+    margin: 5px;
+  }
+}
 </style>

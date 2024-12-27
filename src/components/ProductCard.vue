@@ -97,4 +97,11 @@ export default {
     border-radius: 5px;
     z-index: 1000;
 }
+
+@media (max-width: 400px) {
+  .product-card {
+    width: 90%;
+    max-width: 350px;
+  }
+}
 </style>

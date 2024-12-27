@@ -69,4 +69,19 @@ export default {
     padding: 10px;
     cursor: pointer;
 }
+
+@media (max-width: 400px) {
+  .cart-load ul {
+    padding: 0;
+  }
+
+  .cart-load li {
+    list-style-type: none;
+    margin: 10px 0;
+  }
+
+  .cart-load h2 {
+    font-size: 20px;
+  }
+}
 </style>

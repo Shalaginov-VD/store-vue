@@ -117,4 +117,11 @@ export default {
 .modal-content button:hover {
     background-color: rgb(221, 221, 221)
 }
+
+@media (max-width: 400px) {
+  .modal-content {
+    max-width: 500px;
+    font-size: 12px;
+  }
+}
 </style>
