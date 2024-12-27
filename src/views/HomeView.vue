@@ -1,6 +1,9 @@
 <template>
   <div class="content">
     <h1>Товары</h1>
+    <router-link to="/cart">
+      <img src="../assets/cart.png" alt="Cart logo">
+    </router-link>
     <div class="filters">
       <select v-model="selectedCategory" @change="fetchProducts">
         <option value="">Все категории</option>
