@@ -55,5 +55,18 @@ export default {
 .back-button {
     display: inline-block;
     text-decoration: none;
+    border: 1px solid #ccc;
+    color: #2c3e50;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.cart-load button {
+    border: 1px solid #ccc;
+    background: none;
+    color: #2c3e50;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
 }
 </style>

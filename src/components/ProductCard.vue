@@ -56,12 +56,31 @@ export default {
 </script>
 
 <style>
+.filters select {
+    border: 1px solid #ccc;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
 .product-card {
     border: 1px solid #ccc;
     width: 25%;
     padding: 15px;
     margin: 15px;
+}
+
+.product-card button {
+    border: 1px solid #ccc;
+    background: none;
+    color: #2c3e50;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
     cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: rgb(221, 221, 221)
 }
 
 .product-img {

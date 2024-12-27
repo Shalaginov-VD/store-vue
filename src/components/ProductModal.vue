@@ -103,4 +103,18 @@ export default {
     border-radius: 5px;
     z-index: 1000;
 }
+
+.modal-content button {
+    border: 1px solid #ccc;
+    background: none;
+    color: #2c3e50;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: rgb(221, 221, 221)
+}
 </style>
